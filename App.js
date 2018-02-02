@@ -2,8 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Platform, Button } from 'react-native';
 import { DrawerNavigator } from 'react-navigation'
 
-import MainScreen from './screens/MainScreen';
-import SecondScreen from './screens/SecondScreen';
+import MainScreen from './src/screens/MainScreen';
+import SecondScreen from './src/screens/SecondScreen';
+import BeginningScreen from './src/screens/BeginningScreen';
 
 // export default class App extends React.Component {
 //   render() {
@@ -26,10 +27,14 @@ const MainDrawer = DrawerNavigator (
 		Second: {
 			path: '/send',
 			screen: SecondScreen
-		}
+		},
+		Beginning: {
+			path: '/login',
+			screen: BeginningScreen
+		},
 	},
 	{
-		initialRouteName: 'First',
+		initialRouteName: 'Beginning',
 		drawerPosition: 'left'
 	}
 );
