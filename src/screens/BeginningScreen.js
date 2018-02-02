@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, View, ImageBackground, TouchableOpacity, StyleSheet } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const beginningBackgroudImage = require('../images/beginning_background.jpeg') 
@@ -43,38 +43,39 @@ const styles = StyleSheet.create({
     titleText: {
         fontSize: 50,
         fontWeight: 'bold',
-        color: "white",
+        color: "black",
         marginTop: 160,
     },
 });
-const BeginningScreen = () => ({
+export default class MainScreen extends React.Component {
 render() {
     return  (
-    <Image style={style.beginningBackgroudImage} source={beginningBackgroudImage}>
-        <View style={styles.beginningScreen}> 
-            <View>style={{ flex: 1, alignItems: "center" }}> 
-                <Text style={styles.titleText}>Campus Party></Text>
-            </View>
-        
-            <View style={{flex: 1, alignItens: 'center', justifyContent: 'center' }}>
-                <TouchableOpacity
-                    style={styles.loginButton}
-                    activeOpacity={0}
-                    onPress = {() => this.props.navigation.navigate('DrawerOpen')}
-                >
-                    <Text style={styles.buttonText}>Login</Text>
-                </TouchableOpacity>
+            // <Text> hello </Text>
+            <ImageBackground style={styles.beginningBackgroudImage} source={beginningBackgroudImage}>
+                <View style={styles.beginningScreen}> 
+                    <View style={{ flex: 1, alignItems: "center" }}> 
+                         <Text style={styles.titleText}>Campus Party</Text>
+                    </View>
+                
+                    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                        <TouchableOpacity
+                            style={styles.loginButton}
+                            activeOpacity={0}
+                            onPress = {() => this.props.navigation.navigate('DrawerOpen')}
+                        >
+                            <Text style={styles.buttonText}>Login</Text>
+                        </TouchableOpacity>
 
-                <TouchableOpacity
-                    style={styles.registerButton}
-                    activeOpacity={0}
-                    onPress = {() => this.props.navigation.navigate('DrawerOpen')}
-                >
-                    <Text style={styles.buttonText}>Cadastre-se</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-    </Image>
+                        <TouchableOpacity
+                            style={styles.registerButton}
+                            activeOpacity={0}
+                            onPress = {() => this.props.navigation.navigate('DrawerOpen')}
+                        >
+                            <Text style={styles.buttonText}>Cadastre-se</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </ImageBackground>
         );
-    },
-});
+    }
+}
